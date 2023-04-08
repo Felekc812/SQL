@@ -1,0 +1,13 @@
+--1
+BEGIN;
+SHOW TRANSACTION ISOLATION LEVEL;
+UPDATE pizzeria SET rating = 2 WHERE id = 1;
+UPDATE pizzeria SET rating = 2 WHERE id = 2;
+COMMIT;
+
+--2
+BEGIN;
+SHOW TRANSACTION ISOLATION LEVEL;
+UPDATE pizzeria SET rating = 2.5 WHERE id = 2;
+UPDATE pizzeria SET rating = 2.5 WHERE id = 1;
+COMMIT;
